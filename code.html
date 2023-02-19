@@ -24,7 +24,7 @@
     <!--Nav Section-->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">App Name</a>
+        <a class="navbar-brand" href="#">REWIND</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -51,20 +51,48 @@
 </nav>
 <main class="flex-shrink-0">
     <div class="container py-4 px-5 mt-5">
-        <h2 class="border-1 border-bottom border-dark">The Code for APP NAME.</h2>
+        <h2 class="border-1 border-bottom border-dark">The Code for REWIND.</h2>
         <div class="row row-col-1 row-cols-lg-2">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <pre class="line-numbers"><code class="language-javascript">
-                    //Call Hello World
-                    function helloWorld() {
-                        alert("hellow World");
-                     }
+                    //Get the string from the page
+//controller function
+function getValue(){
+    
+    document.getElementById("alert").classList.add("invisible");
+    
+    let userString = document.getElementById("userString").value;
+    
+    let revString = reverseString(userString);
+    
+    displayString(revString);
+}
+
+//Reverse the string
+//logic function
+function reverseString(userString){
+
+    let revString = [];
+   
+    //revere a string using a for loop
+    for (let index = userString.length - 1; index >= 0; index--) {
+        revString += userString[index];
+        
+    }
+
+    return revString;
+}
+
+//Display the reversed string to the user
+//View Function
+function displayString(revstring){
+
+    //write to the page
+    document.getElementById("msg").innerHTML = `Your string reversed is: ${revstring}`;
+    //show the alert box
+    document.getElementById("alert").classList.remove("invisible")
+}
                 </code></pre>
-            </div>
-            <div class="col-lg-4">
-                <p>The Code is structered in one function</p>
-                <h5>Hello World</h5>
-                <p>Hello World is a function that displays an alert with a message of "Hello World".</p>
             </div>
         </div>
     </div>
